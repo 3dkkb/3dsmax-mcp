@@ -12,6 +12,10 @@
   UpgradeCode="{07bb0422-8d22-4fa8-bfb6-4cadc7b5cf4c}">
   <CompanyDetails Name="Metaverse Makers" />
   <Components Description="plugins parts">
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2022" SeriesMax="2022" />
+    <ComponentEntry ModuleName="./Contents/bin/mcp_bridge_2022.gup" />
+  </Components>
+  <Components Description="plugins parts">
     <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2023" SeriesMax="2023" />
     <ComponentEntry ModuleName="./Contents/bin/mcp_bridge_2023.gup" />
   </Components>
@@ -32,7 +36,7 @@
     <ComponentEntry ModuleName="./Contents/bin/mcp_bridge_2027.gup" />
   </Components>
   <Components Description="post-start-up scripts parts">
-    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2023" SeriesMax="2027" />
+    <RuntimeRequirements OS="Win64" Platform="3ds Max" SeriesMin="2022" SeriesMax="2027" />
     <ComponentEntry ModuleName="./Contents/scripts/mcp_server.ms" />
   </Components>
 </ApplicationPackage>

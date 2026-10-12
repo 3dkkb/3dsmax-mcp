@@ -17,7 +17,7 @@ Ask in natural language; the agent creates objects, builds materials, inspects p
 ## Features
 
 - **151 MCP tools** — (87 in core profile) for scene reads, materials, modifiers, controllers, viewport capture, procedural graphs, and plugin workflows.
-- **Native Bridge** — only 2023-2027 versions.
+- **Native Bridge** — bundled for 3ds Max 2023-2027; 2022 is supported by the TCP fallback and can be built with its SDK.
 - **Introspection** — discover arbitrary Max classes for all kinds of automation and scripting purposes. 
 - **Bundled agent skill** — There is a bundled maxscript documentation if you want to create your own tools.
 
@@ -25,7 +25,7 @@ Ask in natural language; the agent creates objects, builds materials, inspects p
 
 - [Python 3.12+](https://www.python.org/)
 - [uv](https://docs.astral.sh/uv/)
-- Autodesk **3ds Max 2023–2027**
+- Autodesk **3ds Max 2022–2027**
 
 ## Quick start
 

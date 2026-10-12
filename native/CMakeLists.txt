@@ -14,7 +14,7 @@ endif()
 message(STATUS "mcp_bridge version: ${MCP_BRIDGE_VERSION}")
 
 # ── Max version ──────────────────────────────────────────────────
-set(MAX_VERSION "2026" CACHE STRING "Target 3ds Max version (2023, 2024, 2025, 2026, 2027)")
+set(MAX_VERSION "2026" CACHE STRING "Target 3ds Max version (2022, 2023, 2024, 2025, 2026, 2027)")
 message(STATUS "Building for 3ds Max ${MAX_VERSION}")
 
 project(mcp_bridge VERSION ${MCP_BRIDGE_VERSION} LANGUAGES CXX)
@@ -28,7 +28,7 @@ endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Compiler requirements per version:
-#   2023-2026 -> C++17
+#   2022-2026 -> C++17
 #   2027+     -> C++20
 if(MAX_VERSION GREATER_EQUAL 2027)
     message(STATUS "Max 2027+ SDK: C++20 enabled")

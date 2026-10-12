@@ -11,7 +11,7 @@
 
 ## 特点
 
-- **原生桥接（Native Bridge）** — C++ 插件，支持 3ds Max 2023–2027，无需 MAXScript 轮询
+- **原生桥接（Native Bridge）** — 随包提供 3ds Max 2023–2027 的 C++ 插件；2022 使用 TCP 回退，也可通过其 SDK 编译原生插件
 - **运行时自省** — 可发现任意 Max 类、插件接口与参数，方便自动化与二次开发
 - **深度插件支持** — tyFlow、Data Channel、MCG、OSL、Forest Pack、RailClone、Octane
 - **内置智能体技能包** — 附带 MAXScript 参考文档，便于你编写自己的工具
@@ -20,7 +20,7 @@
 
 - Windows
 - [Python 3.12+](https://www.python.org/)
-- Autodesk **3ds Max 2023–2027**
+- Autodesk **3ds Max 2022–2027**
 - [uv](https://docs.astral.sh/uv/)（仅源代码安装或开发时需要）
 
 ---
@@ -273,7 +273,7 @@ $env:MCP_TOOL_PROFILE = "core"
 让它调用 `get_bridge_status`。先确认 3ds Max 正在运行、且安装后已经**重启过**。
 
 **支持哪些 Max 版本**
-2023–2027。原生桥接插件为每个版本单独编译，安装脚本会自动匹配已安装的版本。
+2022–2027。原生桥接插件为每个版本单独编译，安装脚本会自动匹配已安装的版本。
 
 **安全模式**
 `execute_maxscript` 默认受安全模式限制。配置文件位于

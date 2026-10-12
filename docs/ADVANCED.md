@@ -16,7 +16,7 @@ The native bridge is a Global Utility Plugin. It reads the scene through the 3ds
 
 - Python 3.12+
 - [uv](https://docs.astral.sh/uv/)
-- Autodesk 3ds Max 2023–2027
+- Autodesk 3ds Max 2022–2027
 
 ## Installation details
 
@@ -45,7 +45,7 @@ After install, restart 3ds Max. The installer:
 %ProgramData%\Autodesk\ApplicationPlugins\3dsmax-mcp\
   PackageContents.xml
   Contents\
-    bin\mcp_bridge_2023.gup … mcp_bridge_2027.gup
+    bin\mcp_bridge_2022.gup … mcp_bridge_2027.gup
     scripts\mcp_server.ms
 ```
 

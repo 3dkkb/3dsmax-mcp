@@ -28,7 +28,7 @@ def dedupe_max_dirs(dirs: list[Path]) -> list[Path]:
 
 
 def find_max_installations() -> list[Path]:
-    """All Max installs for 2023-2027: ADSK_3DSMAX_x64_{year} env var, then default path."""
+    """All Max installs for 2022-2027: ADSK_3DSMAX_x64_{year} env var, then default path."""
     return dedupe_max_dirs(install.find_max_installations())
 
 

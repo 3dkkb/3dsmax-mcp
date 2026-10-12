@@ -4,6 +4,7 @@ import install
 
 
 def test_max_year_for_reads_standard_install_folder_names() -> None:
+    assert install.max_year_for(Path(r"C:\Program Files\Autodesk\3ds Max 2022")) == 2022
     assert install.max_year_for(Path(r"C:\Program Files\Autodesk\3ds Max 2023")) == 2023
     assert install.max_year_for(Path(r"C:\Program Files\Autodesk\3ds Max 2027")) == 2027
     assert install.max_year_for(Path(r"C:\weird\Max")) is None
@@ -49,6 +50,8 @@ def test_remove_legacy_installations_fails_when_files_remain(monkeypatch, tmp_pa
 def test_package_contents_xml_uses_bin_paths_and_version() -> None:
     xml = install.package_contents_xml("9.9.9")
     assert 'AppVersion="9.9.9"' in xml
+    assert 'SeriesMin="2022" SeriesMax="2022"' in xml
+    assert "./Contents/bin/mcp_bridge_2022.gup" in xml
     assert "./Contents/bin/mcp_bridge_2025.gup" in xml
     assert "./Contents/scripts/mcp_server.ms" in xml
     assert "plugins/" not in xml
@@ -74,7 +77,7 @@ def test_stage_bundle_creates_expected_layout(monkeypatch, tmp_path: Path) -> No
     included, missing = install.stage_bundle(dest)
 
     assert included == [2025]
-    assert 2023 in missing
+    assert 2022 in missing
     assert (dest / "Contents" / "bin" / "mcp_bridge_2025.gup").exists()
     assert (dest / "Contents" / "scripts" / "mcp_server.ms").exists()
     contents = (dest / "PackageContents.xml").read_text(encoding="utf-8")
@@ -109,9 +112,10 @@ def test_max_dir_for_year_falls_back_to_default(monkeypatch) -> None:
 
 
 def test_native_bridge_sources_are_exact_versioned_binaries() -> None:
-    for year in (2023, 2024, 2025, 2026, 2027):
+    for year in (2022, 2023, 2024, 2025, 2026, 2027):
         assert install.GUP_SRCS[year].name == f"mcp_bridge_{year}.gup"
-        assert install.gup_src_for(Path(fr"C:\Program Files\Autodesk\3ds Max {year}")) == install.GUP_SRCS[year]
+        expected = install.GUP_SRCS[year] if install.GUP_SRCS[year].exists() else None
+        assert install.gup_src_for(Path(fr"C:\Program Files\Autodesk\3ds Max {year}")) == expected
 
     assert install.gup_src_for(Path(r"C:\Program Files\Autodesk\3ds Max 2028")) is None
 

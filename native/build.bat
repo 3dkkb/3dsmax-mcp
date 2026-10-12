@@ -23,7 +23,7 @@ if not exist "%CMAKE_EXE%" (
 )
 
 if /I "%TARGET%"=="all" (
-    for %%Y in (2023 2024 2025 2026 2027) do call :build_one %%Y || goto :fail
+    for %%Y in (2022 2023 2024 2025 2026 2027) do call :build_one %%Y || goto :fail
     goto :done
 )
 
@@ -34,9 +34,9 @@ goto :done
 :build_one
 set "MAX_VERSION=%~1"
 if "%MAX_VERSION%"=="" exit /b 1
-if not "%MAX_VERSION%"=="2023" if not "%MAX_VERSION%"=="2024" if not "%MAX_VERSION%"=="2025" if not "%MAX_VERSION%"=="2026" if not "%MAX_VERSION%"=="2027" (
+if not "%MAX_VERSION%"=="2022" if not "%MAX_VERSION%"=="2023" if not "%MAX_VERSION%"=="2024" if not "%MAX_VERSION%"=="2025" if not "%MAX_VERSION%"=="2026" if not "%MAX_VERSION%"=="2027" (
     echo Unsupported Max version: %MAX_VERSION%
-    echo Usage: build.bat [all^|2023^|2024^|2025^|2026^|2027] [deploy]
+    echo Usage: build.bat [all^|2022^|2023^|2024^|2025^|2026^|2027] [deploy]
     exit /b 1
 )
 

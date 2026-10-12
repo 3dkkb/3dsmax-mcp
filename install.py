@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent
 IS_PACKAGED = Path(__file__).name == "installer.py"
 
 GUP_SRCS = {
+    2022: ROOT / "native" / "bin" / "mcp_bridge_2022.gup",
     2023: ROOT / "native" / "bin" / "mcp_bridge_2023.gup",
     2024: ROOT / "native" / "bin" / "mcp_bridge_2024.gup",
     2025: ROOT / "native" / "bin" / "mcp_bridge_2025.gup",
@@ -523,7 +524,7 @@ def main() -> int:
             label = f" ({year})" if year else ""
             print(f"  {max_dir}{label}")
     else:
-        print("\nNo 3ds Max installations detected (2023–2027).")
+        print("\nNo 3ds Max installations detected (2022–2027).")
 
     if not remove_legacy_installations():
         return 1
